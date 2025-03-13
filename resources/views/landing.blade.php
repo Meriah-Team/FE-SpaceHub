@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SpaceHub</title>
+    {{-- css (tailwind) --}}
     @vite('resources/css/app.css')
+    {{-- alpine --}}
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body>
     <x-navbar></x-navbar>
@@ -36,13 +39,10 @@
     <div class="min-h-screen">
         <div class="flex items-center justify-center bg-white mb-11">
             <div class="mb-3 md:mb-0 text-center">
-                <h1 class="md:text-4xl font-bold mb-4">
+                <h1 class="md:text-4xl font-bold mb-4 font-poppins ">
                     <span class="text-[var(--color-spacehub)]">Fleksibilitas dan</span>
                     <span class="text-yellow-500">Kemudahan</span>
                 </h1>
-                <p class="text-lg text-gray-600 mb-6">
-                    SpaceHub membantu kamu untuk menemukan ruang diskusi yang<br>nyaman dan sesuai kebutuhanmu.
-                </p>
             </div>
         </div>    
         {{--  3 alasan --}}
@@ -100,7 +100,7 @@
         <div class="flex flex-col md:flex-row items-center justify-between">
             {{-- Left side - Text content --}}
             <div class="md:w-1/2 mb-8 md:mb-0">
-                <h1 class="md:text-4xl font-bold text-black mb-4">
+                <h1 class="md:text-4xl font-bold text-black mb-4 font-inter">
                     Kenali fitur dalam <br>
                     platform kami
                 </h1>
@@ -159,7 +159,7 @@
     {{-- Jelajhi --}}
     <div class="text-center py-12">
         <h3 class="md:text-4xl font-bold mb-3 text-[var(--color-spacehub)]">Jelajahi Beragam Workspace</h3>
-        <h3 class="md:text-4xl font-semibold text-yellow-400">Mulai Sekarang</h3>
+        <h3 class="md:text-4xl font-bold text-yellow-400">Mulai Sekarang</h3>
     </div>
 
 
@@ -199,7 +199,20 @@
             </div>
         </div>
     
+        {{-- back to top --}}
+        <button
+            x-data="{ show:false }"
+            x-init="window.addEventListener('scroll', () => { show = window.scrollY > 300 })"
+            x-show="show"
+            @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
+            class="fixed bottom-5 right-5 bg-[var(--color-spacehub)] text-white p-2 rounded-full hover:bg-white hover:text-[var(--color-spacehub)] hover: border-2 border-[var(--color-spacehub)]"
+        >
+            Kembali ke Atas ↑
+        </button>
+
         {{-- footer --}}
-        
+        <footer class="">
+
+        </footer>
 </body>
 </html>

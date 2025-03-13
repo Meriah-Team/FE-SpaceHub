@@ -1,20 +1,25 @@
 <!-- Mobile Navigation -->
-<nav class="md:hidden bg-white shadow-lg">
+<nav x-data="{ isOpen:false }" class="md:hidden bg-white shadow-lg">
     <div class="max-w-6xl mx-auto px-4">
         <div class="flex justify-between items-center h-16">
             <div class="flex-shrink-0">
                 <img src="{{ asset('images/spacehublogo.png') }}" alt="" class="h-8 w-auto"> <!-- Added sizing here -->
             </div>
             <div class="mobile-menu">
-                <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                <button id="mobile-menu-button" @click="isOpen = !isOpen" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                    {{-- kalo nongol hamburger --}}
+                    <svg :class="{'hidden': isOpen, 'block': !isOpen }" class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    {{-- kalo kepencet silang --}}
+                    <svg :class="{'block': isOpen, 'hidden': !isOpen }" class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
         </div>
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden pb-3">
+        <div x-show="isOpen" id="mobile-menu" class="md:hidden pb-3">
             <div class="flex flex-col space-y-2">
                 <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Beranda</a>
                 <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Tentang Kami</a>
@@ -22,7 +27,7 @@
                 <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Explore</a>
                 <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Kerjasama</a>
                 <hr class="my-2">
-                <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Login</a>
+                <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Daftar</a>
                 <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600 text-center">Sign Up</a>
             </div>
         </div>
@@ -58,7 +63,7 @@
 </nav>
 
 <!-- Add this script before closing body tag -->
-<script>
+{{-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -67,4 +72,4 @@
             mobileMenu.classList.toggle('hidden');
         });
     });
-</script>
+</script> --}}
