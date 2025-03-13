@@ -168,27 +168,16 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {{-- card rekomendasi --}}
             @for ($i=0; $i<6; $i++)
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <div class="relative h-48">
-                    <img src="{{ asset('images/workspace1.jpg') }}" alt="Workspace <?= $i ?>" class="w-full h-full object-cover">
-                </div>
-                <div class="p-4">
-                    <h4 class="text-xl font-semibold mb-2">Nama Workspace</h4>
-                    <p class="text-gray-600 text-sm mb-2">Lokasi Workspace</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-blue-600 font-bold">Rp 50.000/jam</span>
-                        <span class="text-sm text-gray-500">Kapasitas: 4-8 orang</span>
-                    </div>
-                </div>
-        </div>         
+                <x-top-space-card :i="$i" />
             @endfor
-        </div>
-        {{-- tombol jelajahi --}}
+        </div> 
         <div class="flex justify-end mt-8">
             <a href="#" class="bg-[var(--color-spacehub)] text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition duration-300 inline-flex items-center">
                 Lebih Banyak
             </a>
         </div>
+    </div>
+        {{-- tombol jelajahi --}}
 
         {{-- Kemitraan --}}
         <div class="container mx-auto px-4 py-8">
