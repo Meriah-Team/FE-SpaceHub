@@ -1,7 +1,7 @@
 @props(['i'])
 <div class="bg-white rounded-lg shadow-md overflow-hidden">
-    <div class="relative h-48">
-        <img src="{{ asset('images/workspace1.jpg') }}" alt="Workspace {{ $i }}" class="w-full h-full object-cover">
+    <div class="relative h-32">
+        <img src="{{ asset('images/spaceplaceholder.png') }}" alt="Workspace {{ $i }}" class="w-full h-full object-cover">
     </div>
     <div class="p-4">
         {{-- tags --}}
