@@ -1,14 +1,14 @@
 @props(['i'])
-<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="bg-white rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300">
     <div class="relative h-32">
         <img src="{{ asset('images/spaceplaceholder.png') }}" alt="Workspace {{ $i }}" class="w-full h-full object-cover">
     </div>
     <div class="p-4">
         {{-- tags --}}
         <div class="">
-            <div class="inline-block bg-lime-300 rounded-lg text-white font-semibold text-sm px-2 py-1 ">
-                <p>Tag 1</p>
-            </div>
+            <x-tag>
+                Coworking Space
+            </x-tag>
         </div>
         <div class="flex justify-between items-center">
             <span>

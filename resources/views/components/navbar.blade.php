@@ -21,14 +21,13 @@
         <!-- Mobile Menu Dropdown -->
         <div x-show="isOpen" id="mobile-menu" class="md:hidden pb-3">
             <div class="flex flex-col space-y-2">
-                <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Beranda</a>
-                <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Tentang Kami</a>
-                <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Fitur</a>
-                <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Explore</a>
-                <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Kerjasama</a>
-                <hr class="my-2">
-                <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Daftar</a>
-                <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600 text-center">Sign Up</a>
+                <x-nav-link href="/landing" :active="request()->is('landing')">Beranda</x-nav-link>
+                <x-nav-link href="#" :active="request()->is('/')">Tentang Kami</x-nav-link>
+                <x-nav-link href="#" :active="request()->is('/')">Fitur</x-nav-link>
+                <x-nav-link href="#" :active="request()->is('/')">Explore</x-nav-link>
+                <x-nav-link href="#" :active="request()->is('/')">Kerjasama</x-nav-link>
+        <hr class="my-2">
+                <a href="#" class="border bg-[var(--color-spacehub)] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-white hover:text-[var(--color-spacehub)] hover:border-[var(--color-spacehub)] text-center">Daftar</a>
             </div>
         </div>
     </div>
@@ -40,7 +39,9 @@
         <div class="flex justify-between items-center h-16">
             <div class="flex items-center">
                 <div class="flex-shrink-0">
-                    <img src="{{ asset('images/spacehublogo.png') }}" alt="logo spacehub" class="h-8 w-auto"> 
+                    <a href="#">
+                        <img src="{{ asset('images/spacehublogo.png') }}" alt="logo spacehub" class="h-8 w-auto transition-transform hover:scale-105"> 
+                    </a>
                 </div>
                 <div class="hidden md:block ml-10">
                     <div class="flex items-center space-x-4">
@@ -55,7 +56,7 @@
             </div>
             <div class="hidden md:block">
                 <div class="flex items-center space-x-4">
-                    <a href="#" class="bg-white text-red px-4 py-2 rounded-3xl text-sm font-medium border">Daftar</a>
+                    <a href="#" class="bg-white text-red px-4 py-1 rounded-3xl text-sm font-medium border-1 border-black hover:bg-[var(--color-spacehub)] hover:text-white hover:border-0 transition-colors">Daftar</a>
                 </div>
             </div>
         </div>

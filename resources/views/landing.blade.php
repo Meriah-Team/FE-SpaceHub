@@ -165,14 +165,14 @@
 
     {{-- Top Workspaces --}}
     <div class="container mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-18 bg-gradient-to-b from-[#CED2FF] to-transparent px-12 py-8 rounded-2xl">
             {{-- card rekomendasi --}}
             @for ($i=0; $i<6; $i++)
                 <x-top-space-card :i="$i" />
             @endfor
         </div> 
         <div class="flex justify-end mt-8">
-            <a href="#" class="bg-[var(--color-spacehub)] text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition duration-300 inline-flex items-center">
+            <a href="#" class="bg-[var(--color-spacehub)] text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-[var(--color-spacehub)] border hover:border[var(--colo-spacehub)] transition-color duration-300 inline-flex items-center">
                 Lebih Banyak
             </a>
         </div>
@@ -189,6 +189,12 @@
                 
                 {{-- Right side - text --}}
                 <div class="md:w-1/2 mb-8 ">
+                    <div class="justify-start mb-8">
+                        <a href="#" class="bg-[var(--color-spacehub)] text-white px-6 py-2 rounded-full font-medium hover:bg-white hover:text-[var(--color-spacehub)] border hover:border[var(--colo-spacehub)] transition-color duration-300 inline-flex items-center">
+                            Kemitraan
+                        </a>
+                        </div>
+
                     <h1 class="md:text-4xl font-bold text-[var(--color-spacehub)] mb-4">
                         Bergabung Bersama Kami!
                     </h1>
@@ -205,13 +211,33 @@
             x-init="window.addEventListener('scroll', () => { show = window.scrollY > 300 })"
             x-show="show"
             @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
-            class="fixed bottom-5 right-5 bg-[var(--color-spacehub)] text-white p-2 rounded-full hover:bg-white hover:text-[var(--color-spacehub)] hover: border-2 border-[var(--color-spacehub)]"
+            class="fixed bottom-5 right-5 bg-[var(--color-spacehub)] text-white p-2 rounded-full hover:bg-white hover:text-[var(--color-spacehub)] hover: border-2 border-[var(--color-spacehub)] transition-colors px-3 py-2"
         >
-            Kembali ke Atas ↑
+            Kembali ke Atas
         </button>
 
         {{-- footer --}}
-        <footer class="">
+        <footer class="border-t-1 border-black">
+            <div class="flex flex-col  md:flex-row items-start container p-24">
+                {{-- left section logo spacehub --}}
+                <div class="md:w-1/3">
+                    <img src="{{ asset('images/spacehublogo.png') }}" alt="logo spacehub" class="w-auto h-10">
+                </div>
+                {{-- middle section kontak --}}
+                <div class="md:w-1/3">
+                    <p class="text-xl">Badung Techno Park (BTP), <br> Telkom University Bandung</p>
+                    <p class=" text-sm text-gray-600 break-words">Jl. Telekomunikasi No.1, Sukapura, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40257</p>
+                    <br>
+                    <br>
+                    <p class="underline">hspace64@gmail.com</p>
+                </div>
+                {{-- right section --}}
+                <div class="md:w-1/3 px-16">
+                    <a href="#" class="text-gray-600 hover:underline">Instagram</a>
+                    <br>
+                    <a href="#" class="text-gray-600 hover:underline">Linkedin</a>
+                </div>
+            </div>
 
         </footer>
 </body>
