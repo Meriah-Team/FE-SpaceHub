@@ -23,5 +23,7 @@
     --font-poppins: 'Poppins';
     --font-jakarta: 'Plus Jakarta Sans';
     --color-spacehub: #4535AF;
+    --color-spacehub-dark: #382E7D;
+    --color-spacehub-light: #594DA6;
     --color-neutral-black: #39404B;
 }

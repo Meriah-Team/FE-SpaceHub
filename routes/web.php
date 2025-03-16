@@ -15,3 +15,7 @@ Route::get('/landing', function(){
 Route::get('/onboarding', function(){
     return view('onboarding');
 });
+
+Route::get('/signup', function(){
+    return view('signup');
+});

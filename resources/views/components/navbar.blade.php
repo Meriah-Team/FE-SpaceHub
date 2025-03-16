@@ -27,7 +27,7 @@
                 <x-nav-link href="#" :active="request()->is('/')">Explore</x-nav-link>
                 <x-nav-link href="#" :active="request()->is('/')">Kerjasama</x-nav-link>
         <hr class="my-2">
-                <a href="#" class="border bg-[var(--color-spacehub)] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-white hover:text-[var(--color-spacehub)] hover:border-[var(--color-spacehub)] text-center">Daftar</a>
+                <a href="/onboarding" class="border bg-[var(--color-spacehub)] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-white hover:text-[var(--color-spacehub)] hover:border-[var(--color-spacehub)] text-center">Daftar</a>
             </div>
         </div>
     </div>
@@ -56,7 +56,7 @@
             </div>
             <div class="hidden md:block">
                 <div class="flex items-center space-x-4">
-                    <a href="#" class="bg-white text-red px-4 py-1 rounded-3xl text-sm font-medium border-1 border-black hover:bg-[var(--color-spacehub)] hover:text-white hover:border-0 transition-colors">Daftar</a>
+                    <a href="/onboarding" class="bg-white text-red px-4 py-1 rounded-3xl text-sm font-medium border-1 border-black hover:bg-[var(--color-spacehub)] hover:text-white hover:border-0 transition-colors">Daftar</a>
                 </div>
             </div>
         </div>

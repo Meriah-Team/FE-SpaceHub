@@ -12,14 +12,41 @@
 
 <body class="bg-gray-50 font-jakarta">
     <div x-data="{
+        currentStep: 0,
         step: 'splash',
+        steps: ['step1', 'step2', 'step3'],
         images: {
             'splash': '{{ asset('images/spacehublogo.png') }}',
             'step1': '{{ asset('images/businesswoman in blue suit waving hello.png') }}',
             'step2': '{{ asset('images/confused male student avatar.png') }}',
             'step3': '{{ asset('images/young people looking at gadgets.png') }}',
+        },
+        titles: {
+            'step1': 'Welcome Spacers!',
+            'step2': 'Looking for workspace?',
+            'step3': 'Everything in your hands!'
+        },
+        paragraphs: {
+            'step1': 'Find the best Co-Working Space experience in your city with just one tap. Let\'s start now!',
+            'step2': 'Find the best Co-Working Space around you in seconds, make an appointment, and enjoy the experience.',
+            'step3': 'With SpaceHub, find your comfort working space, see reviews, and make appointments easily. Achieve your productivity appearance!'
+        },
+        nextStep() {
+            this.currentStep++;
+            if (this.currentStep < this.steps.length) {
+                this.step = this.steps[this.currentStep];
+            }
+        },
+        prevStep() {
+            this.currentStep--;
+            if (this.currentStep >= 0) {
+                this.step = this.steps[this.currentStep];
+            } else {
+                this.currentStep = 0;
+            }
         }
-    }" x-init="setTimeout(() => step = 'step1', 1000)">
+    }" x-init="setTimeout(() => { step = steps[0];
+        currentStep = 0; }, 300)">
 
         <!-- Splash Screen -->
         <div x-show="step === 'splash'" x-transition:leave="transition ease-out duration-500"
@@ -28,53 +55,33 @@
             <img :src="images.splash" alt="Logo" class="w-auto min-h-1/8 object-contain">
         </div>
 
-        <!-- Step 1 -->
-        <div x-show="step === 'step1'" x-transition:enter="transition ease-in duration-300"
+        <!-- Steps Content -->
+        <div x-show="step !== 'splash'" x-transition:enter="transition ease-in duration-300"
             x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
             class="min-h-screen flex items-center justify-center p-4">
             <div class="flex flex-col items-center">
-                <img :src="images.step1" alt="Step 1" class="w-64 h-64 mx-auto object-contain">
-                <div class="bg-[var(--color-spacehub)] p-6 rounded-lg shadow-md w-80">
-                    <h2 class="text-2xl font-bold mb-4 text-white">Welcome Spacers!</h2>
-                    <p class="text-white mb-6">Find the best Co-Working Space experience in your city with just one tap.
-                        Let's start now</p>
-                    <button @click="step = 'step2'"
-                        class="bg-[#594DA6] text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition w-full hover:bg-white border border-[var(--color-spacehub)] hover:text-[var(--color-spacehub)]">
-                        Get Started
-                    </button>
-                </div>
-            </div>
-        </div>
+                <img :src="images[step]" alt="Steps" class="w-64 h-64 mx-auto object-contain"
+                x-transition:enter="transition ease-in-ot duration-300">
+                <div class="bg-[var(--color-spacehub-dark)] p-6 rounded-lg shadow-md w-80">
+                    <h2 class="text-2xl font-bold mb-4 text-white" x-text="titles[step]"></h2>
+                    <p class="text-white mb-6" x-text="paragraphs[step]"></p>
 
-        <!-- Step 2 -->
-        <div x-show="step === 'step2'" x-transition:enter="transition ease-in duration-300"
-            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-            class="min-h-screen flex items-center justify-center p-4">
-            <div class="fles flex-col items-center space-y-8 ">
-                <img :src="images.step2" alt="Step 2" class="w-64 h-64 mx-auto object-contain">
-                <div class="bg-[var(--color-spacehub)] p-6 rounded-lg shadow-md w-80">
-                    <h2 class="text-2xl font-bold mb-4 text-white">Looking for Workspace?</h2>
-                    <p class="text-white mb-6">Find the best Co-Working Space around you in seconds, make an appointment, and enjoy the experience.</p>
-                    <button @click="step = 'step3'"
-                        class="bg-[#594DA6] text-white px-6 py-3 rounded-lg font-medium transition hover:bg-white border border-[var(--color-spacehub)] hover:text-[var(--color-spacehub)] inline-block w-full text-center">
-                        Mulai
-                    </button>
-                </div>
-            </div>
-        </div>
-        {{-- step3 --}}
-        <div x-show="step === 'step3'" x-transition:enter="transition ease-in duration-300"
-            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-            class="min-h-screen flex items-center justify-center p-4">
-            <div class="fles flex-col items-center space-y-8 ">
-                <img :src="images.step3" alt="Step 3" class="w-64 h-64 mx-auto object-contain">
-                <div class="bg-[var(--color-spacehub)] p-6 rounded-lg shadow-md w-80">
-                    <h2 class="text-2xl font-bold mb-4 text-white">Everything in your hands!</h2>
-                    <p class="text-white mb-6">With SpaceHub, find your comfort working space, see reviews, and make appointments easily. Achieve your productivity appearance!.</p>
-                    <a href="/landing"
-                        class="bg-[#594DA6] text-white px-6 py-3 rounded-lg font-medium transition hover:bg-white border border-[var(--color-spacehub)] hover:text-[var(--color-spacehub)] inline-block w-full text-center">
-                        Mulai
-                    </a>
+                    <!-- Navigation buttons -->
+                    <div class="flex gap-2">
+                        <!-- Next/Final button -->
+                        <button @click="currentStep < steps.length - 1 ? nextStep() : window.location.href='/signup'"
+                            class="flex-grow bg-[#594DA6] text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition hover:bg-white border border-[var(--color-spacehub-dark)] hover:text-[var(--color-spacehub-dark)]"
+                            x-text="currentStep < steps.length - 1 ? 'Next' : 'Get Started'">
+                        </button>
+                    </div>
+
+                    <!-- Step indicators -->
+                    <div class="flex justify-center mt-4 space-x-2">
+                        <template x-for="(s, index) in steps" :key="index">
+                            <div :class="{ 'bg-white': currentStep === index, 'bg-white/40': currentStep !== index }"
+                                class="w-2 h-2 rounded-full"></div>
+                        </template>
+                    </div>
                 </div>
             </div>
         </div>
