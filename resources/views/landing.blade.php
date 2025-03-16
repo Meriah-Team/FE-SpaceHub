@@ -13,7 +13,7 @@
 <body>
     <x-navbar></x-navbar>
     {{-- Hero section Desktop Client --}}
-    <div class="container mx-auto px-4 py-8 min-h-screen">
+    <div class="container mx-auto px-4 py-8 min-h-screen mt-20">
         <div class="flex flex-col md:flex-row items-center justify-between">
             {{-- Left side - Text content --}}
             <div class="md:w-1/2 mb-8 md:mb-0">
@@ -190,9 +190,9 @@
                 {{-- Right side - text --}}
                 <div class="md:w-1/2 mb-8 ">
                     <div class="justify-start mb-8">
-                        <a href="#" class="bg-[var(--color-spacehub)] text-white px-6 py-2 rounded-full font-medium hover:bg-white hover:text-[var(--color-spacehub)] border hover:border[var(--colo-spacehub)] transition-color duration-300 inline-flex items-center">
+                        <p class="bg-[var(--color-spacehub)] text-white px-6 py-2 rounded-full font-medium border transition-color duration-300 inline-flex items-center">
                             Kemitraan
-                        </a>
+                        </p>
                         </div>
 
                     <h1 class="md:text-4xl font-bold text-[var(--color-spacehub)] mb-4">

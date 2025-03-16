@@ -21,7 +21,7 @@
         <!-- Mobile Menu Dropdown -->
         <div x-show="isOpen" id="mobile-menu" class="md:hidden pb-3">
             <div class="flex flex-col space-y-2">
-                <x-nav-link href="/landing" :active="request()->is('landing')">Beranda</x-nav-link>
+                <x-nav-link href="/" :active="request()->is('/')">Beranda</x-nav-link>
                 <x-nav-link href="#" :active="request()->is('/')">Tentang Kami</x-nav-link>
                 <x-nav-link href="#" :active="request()->is('/')">Fitur</x-nav-link>
                 <x-nav-link href="#" :active="request()->is('/')">Explore</x-nav-link>
@@ -46,11 +46,11 @@
                 <div class="hidden md:block ml-10">
                     <div class="flex items-center space-x-4">
                         {{-- active request belom work idk --}}
-                        <x-nav-link href="/landing" :active="request()->is('landing')">Beranda</x-nav-link>
-                        <x-nav-link href="#" :active="request()->is('/')">Tentang Kami</x-nav-link>
-                        <x-nav-link href="#" :active="request()->is('/')">Fitur</x-nav-link>
-                        <x-nav-link href="#" :active="request()->is('/')">Explore</x-nav-link>
-                        <x-nav-link href="#" :active="request()->is('/')">Kerjasama</x-nav-link>
+                        <x-nav-link href="/" :active="request()->is('/')">Beranda</x-nav-link>
+                        <x-nav-link href="#" :active="request()->is('/about')">Tentang Kami</x-nav-link>
+                        <x-nav-link href="#" :active="request()->is('/fitur')">Fitur</x-nav-link>
+                        <x-nav-link href="#" :active="request()->is('/explore')">Explore</x-nav-link>
+                        <x-nav-link href="#" :active="request()->is('/kerjasama')">Kerjasama</x-nav-link>
                     </div>
                 </div>
             </div>

@@ -2,13 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
 
 // Biar nongol doang pas slicing
-Route::get('/landing', function(){
+Route::get('/', function(){
     return view('landing');
 });
 
@@ -17,5 +17,5 @@ Route::get('/onboarding', function(){
 });
 
 Route::get('/signup', function(){
-    return view('signup');
+    return view('auth/signup');
 });

@@ -45,8 +45,10 @@
                 this.currentStep = 0;
             }
         }
-    }" x-init="setTimeout(() => { step = steps[0];
-        currentStep = 0; }, 300)">
+    }" x-init="setTimeout(() => {
+        step = steps[0];
+        currentStep = 0;
+    }, 300)">
 
         <!-- Splash Screen -->
         <div x-show="step === 'splash'" x-transition:leave="transition ease-out duration-500"
@@ -61,7 +63,7 @@
             class="min-h-screen flex items-center justify-center p-4">
             <div class="flex flex-col items-center">
                 <img :src="images[step]" alt="Steps" class="w-64 h-64 mx-auto object-contain"
-                x-transition:enter="transition ease-in-ot duration-300">
+                    x-transition:enter="transition ease-in-ot duration-300">
                 <div class="bg-[var(--color-spacehub-dark)] p-6 rounded-lg shadow-md w-80">
                     <h2 class="text-2xl font-bold mb-4 text-white" x-text="titles[step]"></h2>
                     <p class="text-white mb-6" x-text="paragraphs[step]"></p>
@@ -85,7 +87,13 @@
                 </div>
             </div>
         </div>
+        {{-- back to home --}}
+        <button x-data="{ show: true }" x-init="window.addEventListener('scroll', () => { show = window.scrollY > 300 })" x-show="show" @click="window.location.href='/'"
+            class="fixed bottom-5 right-5 bg-[var(--color-spacehub)] text-white p-2 rounded-full hover:bg-white hover:text-[var(--color-spacehub)] hover: border-2 border-[var(--color-spacehub)] transition-colors px-3 py-2 font-sans">
+            Back to Home
+        </button>
     </div>
+
 </body>
 
 </html>
