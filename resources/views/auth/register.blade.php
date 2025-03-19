@@ -9,7 +9,8 @@
             fullName: '',
             birthDate: '',
             phoneNumber: '',
-            password: ''
+            password: '',
+            confirmPassword: ''
         },
         isgoogle: false,
         currentStep: 'step1',
@@ -17,7 +18,11 @@
         validateEmail() {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             this.isValidEmail = emailRegex.test(this.formData.email);
+        },
+        validatePassword() {
+            return this.formData.password === this.formData.confirmPassword;
         }
+
     }" class="min-h-screen flex items-center justify-center bg-gray-100 p-4">
 
         {{-- Sign up card --}}
@@ -69,7 +74,7 @@
                 <button @click="currentStep = 'step2'"
                     class="w-full bg-[var(--color-spacehub-light)] hover:bg-[var(--color-spacehub)] text-white font-medium py-2 rounded-lg mb-4 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                     :disabled="!isValidEmail"
-                    x-bind:class="{ 'cursor-not-allowed': !isValidEmail }">
+                    :class="{ 'cursor-not-allowed': !isValidEmail }">
                     Continue
                 </button>
 
@@ -103,7 +108,6 @@
                         <input type="text" 
                                id="fullName" 
                                name="fullName" 
-                               value="{{ old('fullName') }}"
                                placeholder="John Doe"
                                required
                                class="w-full px-4 py-2 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white @error('fullName') ring-2 ring-red-500 @enderror">
@@ -134,10 +138,8 @@
                                required
                                name="password" 
                                placeholder="••••••••"
-                               class="w-full px-4 py-2 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white @error('password') ring-2 ring-red-500 @enderror">
-                        @error('password')
-                            <p class="text-red-400 text-sm mt-1">{{ $message }}</p>
-                        @enderror
+                               x-model="formData.password"
+                               class="w-full px-4 py-2 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
                     </div>
 
                     {{--  Password Confirmation  --}}
@@ -148,7 +150,10 @@
                                name="password_confirmation" 
                                required
                                placeholder="••••••••"
-                               class="w-full px-4 py-2 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+                               x-model="formData.confirmPassword"
+                               class="w-full px-4 py-2 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                               :class="{ 'ring-2 ring-red-500': !validatePassword() }">
+                        <p x-show="!validatePassword()" class="text-red-400 text-sm mt-1">Password doesn't match</p>
                     </div>
 
                     {{--  Privacy Policy Checkbox  --}}
@@ -193,7 +198,7 @@
                             Back
                         </button>
                         <button type="submit"
-                            class="w-1/2 bg-[var(--color-spacehub-light)] hover:bg-[var(--color-spacehub)] text-white font-medium py-3 rounded-lg transition duration-200" >
+                            class="w-1/2 bg-[var(--color-spacehub-light)] hover:bg-[var(--color-spacehub)] text-white font-medium py-3 rounded-lg transition duration-200" :disabled="!validatePassword()">
                             Create Account
                         </button>
                     </div>
