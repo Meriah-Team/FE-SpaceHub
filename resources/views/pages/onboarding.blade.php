@@ -71,7 +71,7 @@
                     <!-- Navigation buttons -->
                     <div class="flex gap-2">
                         <!-- Next/Final button -->
-                        <button @click="currentStep < steps.length - 1 ? nextStep() : window.location.href='/signup'"
+                        <button @click="currentStep < steps.length - 1 ? nextStep() : window.location.href='/register'"
                             class="flex-grow bg-[#594DA6] text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition hover:bg-white border border-[var(--color-spacehub-dark)] hover:text-[var(--color-spacehub-dark)]"
                             x-text="currentStep < steps.length - 1 ? 'Next' : 'Get Started'">
                         </button>
