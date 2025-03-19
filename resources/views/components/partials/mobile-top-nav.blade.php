@@ -1,4 +1,4 @@
-<div class="fixed top-0 left-0 right-0 bg-white shadow-xs z-50">
+<header class="md:hidden fixed top-0 left-0 right-0 bg-white shadow-xs z-50">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center border-b-2 border-gray-200">
         <!-- Location and User Info -->
         <div class="flex flex-col items-start">
@@ -21,7 +21,7 @@
                 class="h-10 w-10 rounded-full object-cover border-2 border-gray-200">
         </div>
     </div>
-</div>
+</header>
 
 <!-- Spacer to prevent content from hiding under fixed navbar -->
-<div class="h-16"></div>
+<div class="h-20"></div>
