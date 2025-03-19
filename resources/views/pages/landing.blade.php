@@ -11,7 +11,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body>
-    <x-navbar></x-navbar>
+    <x-partials.navbar></x-partials.navbar>
     {{-- Hero section Desktop Client --}}
     <div class="container mx-auto px-4 py-8 min-h-screen mt-20">
         <div class="flex flex-col md:flex-row items-center justify-between">
