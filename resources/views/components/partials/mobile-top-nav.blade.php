@@ -4,10 +4,8 @@
         <div class="flex flex-col items-start">
             <div class="flex items-center">
                 <x-svg.location-svg class="text-[var(--color-spacehub)]"></x-svg.location-svg>
-                {{-- TO DO: pake kota dari lokasi --}}
                 <span class="text-gray-700">Yogyakarta</span>
             </div>
-            {{-- TO Do: pake nama sesuai username --}}
             <span class="text-lg font-semibold text-gray-800">Joe Samanta</span>
         </div>
 
@@ -19,5 +17,4 @@
     </div>
 </header>
 
-<!-- Spacer to prevent content from hiding under fixed navbar -->
-<div class="h-20"></div>
+

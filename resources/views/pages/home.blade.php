@@ -7,15 +7,19 @@
 
         {{-- Navbar (mobile only(?)) --}}
         @include('components.partials.mobile-top-nav')
-
+        <!-- Spacer to prevent content from hiding under fixed navbar -->
+        <div class="h-44"></div>
 
         {{-- content body --}}
         <main class="flex-grow overflow-auto">
             {{-- side scroll view buat rekomendasi workspace --}}
             <section class="flex space-x-4 overflow-x-auto bg-white h-51 p-4">
                 @for ($i = 0; $i < 5; $i++)
-                    {{-- card workspace --}}
-                    <x-recommended-workspace>
+                    <x-recommended-workspace 
+                        title="Virtual Office (vOffice)"
+                        address="Jl. Braga Nomor 109, Bandung"
+                        image="{{ asset('images/spaceplaceholder.png') }}"
+                    >
                     </x-recommended-workspace>
                 @endfor
             </section>
@@ -40,7 +44,12 @@
 
                         {{-- card jelajahi workspace --}}
                         @for ($i = 0; $i < 3; $i++)
-                            <x-spacecard-squareimg>
+                            <x-spacecard-squareimg
+                                title="Virtual Office (vOffice)"
+                                address="Jl. Braga Nomor 109, Bandung"
+                                rating="4.5"
+                                image="{{ asset('images/spaceplaceholder.png') }}"
+                            >
                             </x-spacecard-squareimg>
                         @endfor
                     </div>
