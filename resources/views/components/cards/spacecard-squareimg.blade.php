@@ -5,7 +5,7 @@
     'image' => ''     
 ])
 
-<div class="grid grid-cols-[100px_1fr] gap-2 min-h-0 w-full">
+<div class="grid grid-cols-[1fr_2fr] gap-2 min-h-0 w-full">
     {{-- gambar kiri --}}
     <div class="aspect-square rounded-lg overflow-hidden">
         <img class="w-full h-full object-cover rounded-lg"

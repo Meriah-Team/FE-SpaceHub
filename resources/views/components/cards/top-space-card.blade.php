@@ -6,9 +6,9 @@
     <div class="p-4">
         {{-- tags --}}
         <div class="">
-            <x-tag>
+            <x-ui.tag>
                 Coworking Space
-            </x-tag>
+            </x-ui.tag>
         </div>
         <div class="flex justify-between items-center">
             <span>

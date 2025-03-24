@@ -168,7 +168,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-18 bg-gradient-to-b from-[#CED2FF] to-transparent px-12 py-8 rounded-2xl">
             {{-- card rekomendasi --}}
             @for ($i=0; $i<6; $i++)
-                <x-top-space-card :i="$i" />
+                <x-cards.top-space-card :i="$i" />
             @endfor
         </div> 
         <div class="flex justify-end mt-8">

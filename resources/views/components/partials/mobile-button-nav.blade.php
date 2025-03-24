@@ -1,5 +1,5 @@
 {{-- spacer biar gak ada yg dibelakang nav --}}
-<div class="h-20"></div>
+<div class="h-40"></div>
 <footer class="md:hidden fixed bottom-0 left-0 right-0 shadow-lg z-50 bg-white">
     <div class="flex justify-around items-center h-16 mx-4 bg-white border-t-2 border-gray-200">
         <!-- Home -->

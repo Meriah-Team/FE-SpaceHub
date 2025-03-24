@@ -6,12 +6,12 @@
                 <x-svg.location-svg class="text-[var(--color-spacehub)]"></x-svg.location-svg>
                 <span class="text-gray-700">Yogyakarta</span>
             </div>
-            <span class="text-lg font-semibold text-gray-800">Joe Samanta</span>
+            <span class="text-lg font-semibold text-gray-800">Lee Ji-eun</span>
         </div>
 
         <!-- Profile Picture -->
         <div class="flex items-center">
-            <img src="{{ asset('images/default-avatar.png') }}" alt="Profile Picture"
+            <img src="{{ asset('images/iupfp.jpg') }}" alt="Profile Picture"
                 class="h-10 w-10 rounded-full object-cover border-2 border-gray-200">
         </div>
     </div>
