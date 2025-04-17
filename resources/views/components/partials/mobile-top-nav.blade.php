@@ -4,7 +4,7 @@
         <div class="flex flex-col items-start">
             <div class="flex items-center">
                 <x-svg.location-svg class="text-[var(--color-spacehub)]"></x-svg.location-svg>
-                <span class="text-gray-700">Yogyakarta</span>
+                <span class="text-gray-700">Bojongsoang</span>
             </div>
             <span class="text-lg font-semibold text-gray-800">Lee Ji-eun</span>
         </div>
